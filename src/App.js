@@ -5,8 +5,10 @@ import Main from './Main';
 
 
 function App() {
+  
+  
   return (
-    <div>
+    <div className='App'>
       <h1>app</h1>
       <Main/>
     </div>

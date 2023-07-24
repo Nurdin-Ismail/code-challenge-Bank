@@ -6,7 +6,7 @@
       "description": "Paycheck from Bob's Burgers",
       "category": "Income",
       "amount": 1000
-    },
+    }, 
     {
       "id": 2,
       "date": "2019-12-01",
@@ -97,7 +97,20 @@
       "category": "Food",
       "amount": "3000",
       "id": 14
+    },
+    {
+      "date": "1111-02-22",
+      "description": "fdcsfcdx",
+      "category": "food",
+      "amount": 1222,
+      "id": 15
+    },
+    {
+      "date": "",
+      "description": "",
+      "category": "",
+      "amount": 0,
+      "id": 16
     }
   ]
- }
- 
+}

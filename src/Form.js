@@ -1,8 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 
 function Form(){
     return (
-        <h1>Form</h1>
+       
+        <div className="Form">
+             <h1>Form</h1>
+        </div>
     )
 }
 

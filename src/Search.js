@@ -1,8 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 
 function Search(){
     return (
-        <h1>search</h1>
+        
+        <div className="Search">
+            <h1>Search</h1>
+        </div>
     )
 }
 
