@@ -1,10 +1,19 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import Main from './Main';
+
+
 
 function App() {
   return (
-    <h1>hallo</h1>
+    <div>
+      <h1>app</h1>
+      <Main/>
+    </div>
+    
   );
 }
 
 export default App;
+
+
