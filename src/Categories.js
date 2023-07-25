@@ -79,8 +79,8 @@ function Categories({copiedData, setCopiedData, transactionData, filtered, setFi
     return (
         
         <div className="Category">
-            <h1>Category</h1>
-            <select onChange={handleCategories}>
+            
+            <select onChange={handleCategories} className="button-89">
                 <option value="All">All</option>
                 <option value="Income">Income</option>
                 <option value="Food">Food</option>

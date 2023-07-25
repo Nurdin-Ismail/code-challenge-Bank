@@ -1,12 +1,113 @@
 import React,{useState} from "react";
 
-function Form(){
+function Form({addTransaction}){
+    const [dateInput, setDateInput] = useState("");
+    const [descriptionInput, setDescriptionInput] = useState("");
+    const [categoryInput, setCategoryInput] = useState("");
+    const [amountInput, setAmountInput] = useState("");
+  
+    
+    const handleSubmit = async (e) => {
+      e.preventDefault(); // Prevent the default form submission behavior
+  
+      // Create a new transaction object with the form data
+      const newTransaction = {
+        dateInput,
+        descriptionInput,
+        categoryInput,
+        amountInput: Number(amountInput),
+      };
+  
+      try {
+        // Make an HTTP POST request to the server's API to add the new transaction
+        const response = await fetch("http://localhost:3000/transactions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newTransaction),
+        });
+  
+        if (!response.ok) {
+          throw new Error("Error adding transaction.");
+        }
+  
+        // Parse the response data as JSON
+        const data = await response.json();
+  
+        // Call the addTransaction function to update the data state with the new transaction
+        addTransaction(data);
+  
+        // Reset form fields after form submission
+        setDateInput("");
+        setDescriptionInput("");
+        setCategoryInput("");
+        setAmountInput("");
+      } catch (error) {
+        console.error("Error adding transaction:", error);
+      }
+    };
+  
+    // Render the form with input fields for date, description, category, and amount
     return (
-       
+      <>
         <div className="Form">
-             <h1>Form</h1>
+          <form className="add-transac-form" onSubmit={handleSubmit}>
+            <h4>Add a transaction</h4>
+            <div className="form-group">
+              <label htmlFor="dateInput">Date: </label>
+              <input
+                type="date"
+                className="form-control"
+                id="dateInput"
+                placeholder="Date"
+                value={dateInput}
+                onChange={(e) => setDateInput(e.target.value)} // Update date state on input change
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="descriptionInput">Description: </label>
+              <input
+                type="text"
+                className="form-control"
+                id="descriptionInput"
+                placeholder="Description"
+                value={descriptionInput}
+                onChange={(e) => setDescriptionInput(e.target.value)} // Update description state on input change
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="categoryInput">Category: </label>
+              <input
+                type="text"
+                className="form-control"
+                id="categoryInput"
+                placeholder="Category"
+                value={categoryInput}
+                onChange={(e) => setCategoryInput(e.target.value)} // Update category state on input change
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="amountInput">Amount: </label>
+              <input
+                type="number"
+                className="form-control"
+                id="amountInput"
+                placeholder="Amount"
+                value={amountInput}
+                onChange={(e) => setAmountInput(e.target.value)} // Update amount state on input change
+              />
+            </div>
+            <button type="submit" className="button-89">
+              Submit
+            </button>
+          </form>
         </div>
-    )
-}
+      </>
+    );
+  }
+   
+
 
 export default Form;

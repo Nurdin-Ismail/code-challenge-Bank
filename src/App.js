@@ -9,7 +9,7 @@ function App() {
   
   return (
     <div className='App'>
-      <h1>app</h1>
+      <header>BANK OF FLATIRON</header>
       <Main/>
     </div>
     

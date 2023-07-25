@@ -4,6 +4,8 @@ import Categories from "./Categories";
 import Table from "./Table";
 
 function Filter({transactionData}){
+    const [search, setSearch] = useState('')
+    
     console.log(transactionData);
     console.log(typeof(transactionData))
     let copy = [] 
@@ -21,12 +23,12 @@ function Filter({transactionData}){
         <div className='Filter'>
             <h1>Filter</h1>
             <div className="Filter-bar">
-            <Search/>
+            <Search setSearch={setSearch} search={search} filtered={filtered} setFiltered={setFiltered}/>
             <Categories copiedData={copiedData} setCopiedData={setCopiedData} transactionData={transactionData} filtered={filtered} setFiltered={setFiltered}/> 
             </div>
 
             <div>
-                <Table filtered={filtered}/>
+                <Table filtered={filtered} setFiltered={setFiltered}/>
 
 
                 

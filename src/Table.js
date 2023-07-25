@@ -14,13 +14,15 @@ function Table(filtered){
 
 
                 })
+                
                 return nanu
 
     }
     return (
         <div className="Table">
 
-            <h1>Table</h1>
+            <h1>Transactions:</h1>
+            <br />
             <table className="table">
                <tr className='Heading'>
                      <th>Id</th>

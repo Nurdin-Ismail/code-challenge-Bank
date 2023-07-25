@@ -7,6 +7,10 @@ function Main(){
        
     const [transactionData, setTransactionData] = useState([])
     const [counter, setCounter] = useState(4)
+    const addTransaction = (newTransaction) => {
+        // Create a copy of the current data state and add the newTransaction
+        setTransactionData((prevData) => [...prevData, newTransaction]);
+      };
     // console.log(transactionData)
     useEffect(() => {
          
@@ -40,7 +44,7 @@ function Main(){
             <div className='Main'>
                  {transactionData.length >= 4 ? (
                        <div>
-                        <h1>main</h1>
+                        
             
 
             
@@ -48,7 +52,7 @@ function Main(){
                      
                     <div>
                         <Filter transactionData={transactionData}/>
-                        <Form transactionData={transactionData} setTransactionData={setTransactionData}/>
+                        <Form transactionData={transactionData} setTransactionData={setTransactionData} addTransaction={addTransaction}/>
                     </div>
                    
                    
