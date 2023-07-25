@@ -27,10 +27,11 @@ function Search({ search, setSearch, filtered, setFiltered }){
       </button>
       <input
         type="text"
-        className="input-search"
+        className="form__field"
         onChange={searchInputHandler}
         placeholder="Type to Filter..."
       />
+      
     </div>
   );
 }
