@@ -1,20 +1,31 @@
 import React,{useState} from "react";
+import Search from "./Search";
 
 function Categories({copiedData, setCopiedData, transactionData, filtered, setFiltered}){
     // console.log(copiedData)
-
+    // console.log(search)
     let unchangedData = [...transactionData]
 
     // console.log(unchangedData)
 
+//     const searchData = filtered.filter((item) => {
+//         if (item.description.toLowerCase().includes(search.toLowerCase())){
+
+//             return item
+
+//         }
+//     })
+//   console.log(searchData)
+    
+
     const [categ, setCateg] = useState('All')
 
-    if(categ == 'All'){
+    if(categ === 'All'){
         setFiltered(copiedData)
-        console.log(filtered)
+        // console.log(filtered)
     }
     // console.log(categ)
-    console.log(categ)
+    // console.log(categ)
     // console.log(copiedData[0].category)
     function handleCategories(e){
         
@@ -30,7 +41,7 @@ function Categories({copiedData, setCopiedData, transactionData, filtered, setFi
         }else{
             
             setFiltered(copiedData)
-            return console.log(filtered)
+            return //console.log(filtered)
         }
 
        

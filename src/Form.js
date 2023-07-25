@@ -1,10 +1,10 @@
 import React,{useState} from "react";
 
 function Form({addTransaction}){
-    const [dateInput, setDateInput] = useState("");
-    const [descriptionInput, setDescriptionInput] = useState("");
-    const [categoryInput, setCategoryInput] = useState("");
-    const [amountInput, setAmountInput] = useState("");
+    const [date, setDate] = useState("");
+    const [description, setDescription] = useState("");
+    const [category, setCategory] = useState("");
+    const [amount, setAmount] = useState("");
   
     
     const handleSubmit = async (e) => {
@@ -12,10 +12,10 @@ function Form({addTransaction}){
   
       // Create a new transaction object with the form data
       const newTransaction = {
-        dateInput,
-        descriptionInput,
-        categoryInput,
-        amountInput: Number(amountInput),
+        date,
+        description,
+        category,
+        amount: Number(amount),
       };
   
       try {
@@ -39,10 +39,10 @@ function Form({addTransaction}){
         addTransaction(data);
   
         // Reset form fields after form submission
-        setDateInput("");
-        setDescriptionInput("");
-        setCategoryInput("");
-        setAmountInput("");
+        setDate("");
+        setDescription("");
+        setCategory("");
+        setAmount("");
       } catch (error) {
         console.error("Error adding transaction:", error);
       }
@@ -61,8 +61,8 @@ function Form({addTransaction}){
                 className="form-control"
                 id="dateInput"
                 placeholder="Date"
-                value={dateInput}
-                onChange={(e) => setDateInput(e.target.value)} // Update date state on input change
+                value={date}
+                onChange={(e) => setDate(e.target.value)} // Update date state on input change
               />
             </div>
 
@@ -73,8 +73,8 @@ function Form({addTransaction}){
                 className="form-control"
                 id="descriptionInput"
                 placeholder="Description"
-                value={descriptionInput}
-                onChange={(e) => setDescriptionInput(e.target.value)} // Update description state on input change
+                value={description}
+                onChange={(e) => setDescription(e.target.value)} // Update description state on input change
               />
             </div>
             <div className="form-group">
@@ -84,8 +84,8 @@ function Form({addTransaction}){
                 className="form-control"
                 id="categoryInput"
                 placeholder="Category"
-                value={categoryInput}
-                onChange={(e) => setCategoryInput(e.target.value)} // Update category state on input change
+                value={category}
+                onChange={(e) => setCategory(e.target.value)} // Update category state on input change
               />
             </div>
             <div className="form-group">
@@ -95,8 +95,8 @@ function Form({addTransaction}){
                 className="form-control"
                 id="amountInput"
                 placeholder="Amount"
-                value={amountInput}
-                onChange={(e) => setAmountInput(e.target.value)} // Update amount state on input change
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)} // Update amount state on input change
               />
             </div>
             <button type="submit" className="button-89">

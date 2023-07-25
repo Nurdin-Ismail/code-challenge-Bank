@@ -25,7 +25,7 @@
   align-items: center;
   align-content: center;
   text-align: center;
-  padding: 40px;
+  padding: 20px;
 }
 
 .Filter{
@@ -59,11 +59,11 @@
 .Table, th, td {
   border: 1px solid;
   align-content: center;
- padding: 20px 50px;
+ padding: 20px 40px;
 }
 
 .Form{
-   margin: 50px 400px;
+   margin: 40px 300px;
    background-color: aliceblue;
    border-radius: 40px;
    align-content: center;
@@ -76,7 +76,7 @@
 }
 .form-control{
   border-radius: 50px;
-  padding: 20px 20px;
+  padding: 20px 10px;
   margin-top: 10px;
   
 }

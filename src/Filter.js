@@ -5,9 +5,12 @@ import Table from "./Table";
 
 function Filter({transactionData}){
     const [search, setSearch] = useState('')
-    
-    console.log(transactionData);
-    console.log(typeof(transactionData))
+    const handleSearch = (value) => {
+        setSearch(value)
+        console.log(value)
+    }
+    // console.log(transactionData);
+    // console.log(typeof(transactionData))
     let copy = [] 
     copy = [...transactionData]
     const [copiedData, setCopiedData] = useState(copy)
@@ -15,20 +18,23 @@ function Filter({transactionData}){
 
     const [filtered, setFiltered] = useState([])
 
-    console.log(filtered)
     
+    // {search.length >=1? setFiltered(filtered.map((item) => {})): console.log('nothing')}
+
+   
 
 
     return (
         <div className='Filter'>
-            <h1>Filter</h1>
+            
             <div className="Filter-bar">
-            <Search setSearch={setSearch} search={search} filtered={filtered} setFiltered={setFiltered}/>
-            <Categories copiedData={copiedData} setCopiedData={setCopiedData} transactionData={transactionData} filtered={filtered} setFiltered={setFiltered}/> 
+            <Search handleSearch={handleSearch}/>
+            <Categories copiedData={copiedData} setCopiedData={setCopiedData} transactionData={transactionData} filtered={filtered} setFiltered={setFiltered} /> 
             </div>
 
             <div>
-                <Table filtered={filtered} setFiltered={setFiltered}/>
+
+                <Table filtered={filtered} setFiltered={setFiltered} search={search}/>
 
 
                 

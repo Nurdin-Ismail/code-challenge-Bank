@@ -2,20 +2,42 @@ import React,{useState} from "react";
 import './App.css';
 import DataRows from "./DataRows";
 
-function Table(filtered){
+function Table({filtered, search}){
 
     function tableRows(){
 
 
-        let nanu = filtered.filtered.map((item) => {
-                    console.log(item);
+        let nanu = filtered.map((item) => {
+                    // console.log(item);
 
-                    return <DataRows key={item.id} id={item.id}date={item.date} description={item.description} category={item.category} amount={item.amount} />
+                    return <DataRows key={item.id} id={item.id}date={item.date} description={item.description} category={item.category} amount={item.amount} handleDelete={handleDelete} />
 
 
                 })
                 
                 return nanu
+
+    }
+
+ 
+    
+        const searchData = filtered.filter((item) => {
+        if (item.description.toLowerCase().includes(search.toLowerCase())){
+                 return item
+            
+           
+
+            
+
+        }
+    })
+
+   
+    
+
+
+    function handleDelete(e){
+        // console.log(e.target.value)
 
     }
     return (
@@ -34,7 +56,10 @@ function Table(filtered){
                     <th>---</th>
                 </tr>
 
-                {tableRows()}
+                {/* {tableRows()} */}
+                {search === '' ? tableRows():  searchData.map((item) => {
+                return <DataRows key={item.id} id={item.id}date={item.date} description={item.description} category={item.category} amount={item.amount} handleDelete={handleDelete} />
+            })}
 
 
 

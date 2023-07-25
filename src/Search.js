@@ -1,21 +1,21 @@
 import { logDOM } from "@testing-library/react";
 import React,{useState} from "react";
 
-function Search({ search, setSearch, filtered, setFiltered }){
+function Search({ handleSearch }){
         
 
 
-  function searchInputHandler(e) {
-    let target = `${e.target.value}`
-    setSearch(target);
-    console.log(search);
-    // filtered.filter((item) => item.description === target.toLocaleLowerCase)
-     console.log(filtered.map(item => item.description).filter((item) => item === target))
+  // function searchInputHandler(e) {
+  //   let target = `${e.target.value}`
+  //   setSearch(target);
+  //   console.log(search);
+  //   // filtered.filter((item) => item.description === target.toLocaleLowerCase)
+  //    console.log(filtered.map((item) => item.description).filter(item => item === 'Sunglasses, Urban Outfitters'))
     
 
     
 
-  }
+  // }
   return (
     <div className="search-box">
       <button className="btn-search">
@@ -24,9 +24,16 @@ function Search({ search, setSearch, filtered, setFiltered }){
       <input
         type="text"
         className="form__field"
-        onChange={searchInputHandler}
+        onChange={(e) => {
+          
+          handleSearch(`${e.target.value   }`)
+          // console.log(`${e.target.value   }`)
+        
+        
+        }}
         placeholder="Type to Filter..."
       />
+      {/* <button onClick={searchInputHandler}></button> */}
       
     </div>
   );

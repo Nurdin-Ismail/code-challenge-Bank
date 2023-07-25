@@ -68,7 +68,7 @@ function Main(){
 
  
             ) : (
-                <h1>hallo</h1>
+                <h1>Data Yet To Be Fetched</h1>
             )}
             
             
